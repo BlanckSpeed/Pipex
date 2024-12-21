@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlendine <rlendine@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/17 07:25:00 by rodrigo           #+#    #+#             */
-/*   Updated: 2024/12/21 06:01:22 by rlendine         ###   ########.fr       */
+/*   Created: 2024/12/21 07:12:32 by rlendine          #+#    #+#             */
+/*   Updated: 2024/12/21 07:22:39 by rodrigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-int	msg(char *err)
+size_t	ft_strlen(const char *s)
 {
-	write(2, err, ft_strlen(err));
-	return (1);
-}
+	size_t	i;
 
-void	msg_error(char *err)
-{
-	perror(err);
-	exit (1);
+	i = 0;
+	if (s)
+	{
+		while (s[i])
+			i++;
+	}
+	return (i);
 }

@@ -6,7 +6,7 @@
 /*   By: rlendine <rlendine@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 07:27:42 by rodrigo           #+#    #+#             */
-/*   Updated: 2024/12/21 05:04:41 by rlendine         ###   ########.fr       */
+/*   Updated: 2024/12/21 06:20:15 by rlendine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	first_child(t_pipex pipex, char **argv, char **envp)
 	execve(pipex.cmd, pipex.cmd_args, envp);
 }
 
-void	second_child(t_pipex pipex, char *argv[], char *envp[])
+void	second_child(t_pipex pipex, char **argv, char **envp)
 {
 	dup2(pipex.tube[0], 0);
 	close(pipex.tube[1]);

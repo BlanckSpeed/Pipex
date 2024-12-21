@@ -6,7 +6,7 @@
 /*   By: rlendine <rlendine@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 07:26:53 by rodrigo           #+#    #+#             */
-/*   Updated: 2024/12/21 01:51:02 by rlendine         ###   ########.fr       */
+/*   Updated: 2024/12/21 07:18:28 by rlendine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,6 @@
 /* perror */
 # include <stdio.h>
 
-/* get_next_line */
-# include "gnl/get_next_line.h"
-
 # define ERR_INFILE "Invalid Infile"
 # define ERR_OUTFILE "Invalid Outfile"
 # define ERR_INPUT "Invalid number of arguments.\n"
@@ -56,8 +53,8 @@ typedef struct s_pipex
 }	t_pipex;
 
 /* childs.c */
-void	first_child(t_pipex pipex, char *argv[], char *envp[]);
-void	second_child(t_pipex pipex, char *argv[], char *envp[]);
+void	first_child(t_pipex pipex, char **argv, char **envp);
+void	second_child(t_pipex pipex, char **argv, char **envp);
 
 /* free.c */
 void	parent_free(t_pipex *pipex);
@@ -72,5 +69,5 @@ char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strdup(const char *src);
 char	**ft_split(char const *s, char c);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
-
+size_t	ft_strlen(const char *s);
 #endif
