@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   childs.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rodrigo <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: rlendine <rlendine@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 07:27:42 by rodrigo           #+#    #+#             */
-/*   Updated: 2024/12/17 07:27:55 by rodrigo          ###   ########.fr       */
+/*   Updated: 2024/12/21 04:01:55 by rodrigo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@ static char	*get_cmd(char **paths, char *cmd)
 	char	*tmp;
 	char	*command;
 
+	if (cmd[0] == '/')
+	{
+		if (access(cmd, 0) == 0)
+			return (cmd);
+		return (NULL);
+	}
 	while (*paths)
 	{
 		tmp = ft_strjoin(*paths, "/");
@@ -30,7 +36,7 @@ static char	*get_cmd(char **paths, char *cmd)
 	return (NULL);
 }
 
-void	first_child(t_pipex pipex, char *argv[], char *envp[])
+void	first_child(t_pipex pipex, char **argv, char **envp)
 {
 	dup2(pipex.tube[1], 1);
 	close(pipex.tube[0]);
