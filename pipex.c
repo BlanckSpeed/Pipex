@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rodrigo <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: rlendine <rlendine@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 07:29:26 by rodrigo           #+#    #+#             */
-/*   Updated: 2024/12/17 07:29:31 by rodrigo          ###   ########.fr       */
+/*   Updated: 2024/12/21 04:35:29 by rlendine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	close_pipes(t_pipex *pipex)
 	close(pipex->tube[1]);
 }
 
-int	main(int argc, char *argv[], char *envp[])
+int	main(int argc, char **argv, char **envp)
 {
 	t_pipex	pipex;
 
@@ -34,13 +34,13 @@ int	main(int argc, char *argv[], char *envp[])
 	pipex.infile = open(argv[1], O_RDONLY);
 	if (pipex.infile < 0)
 		msg_error(ERR_INFILE);
-	pipex.outfile = open(argv[argc - 1], O_TRUNC | O_CREAT | O_RDWR, 0000644);
+	pipex.outfile = open(argv[argc - 1], O_TRUNC | O_CREAT | O_RDWR, 0600);
 	if (pipex.outfile < 0)
 		msg_error(ERR_OUTFILE);
 	if (pipe(pipex.tube) < 0)
 		msg_error(ERR_PIPE);
-	pipex.paths = find_path(envp);
-	pipex.cmd_paths = ft_split(pipex.paths, ':');
+	pipex.path = find_path(envp);
+	pipex.cmd_paths = ft_split(pipex.path, ':');
 	pipex.pid1 = fork();
 	if (pipex.pid1 == 0)
 		first_child(pipex, argv, envp);

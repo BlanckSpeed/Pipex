@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rodrigo <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: rlendine <rlendine@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 07:25:00 by rodrigo           #+#    #+#             */
-/*   Updated: 2024/12/17 08:39:12 by rodrigo          ###   ########.fr       */
+/*   Updated: 2024/12/21 00:30:37 by rlendine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,3 @@ void	msg_error(char *err)
 	perror(err);
 	exit (1);
 }
-/*
-int	main()
-{
-	// Simulación de un error para demostrar msg_error
-	msg_error("Error simulado");
-
-	// Código principal del programa
-	write(1, "Programa sin errores\n", 21);
-
-	return 0;
-}
-*/

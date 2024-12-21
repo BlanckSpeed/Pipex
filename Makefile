@@ -3,23 +3,23 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rodrigo <marvin@42.fr>                     +#+  +:+       +#+         #
+#    By: rlendine <rlendine@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/17 08:04:40 by rodrigo           #+#    #+#              #
-#    Updated: 2024/12/17 08:09:10 by rodrigo          ###   ########.fr        #
+#    Updated: 2024/12/21 00:31:24 by rlendine         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME    = pipex
-CC      = gcc
-FLAGS   = -Wall -Wextra -Werror
-RM      = rm -rf
+NAME	= pipex
+CC	= gcc
+FLAGS	= -Wall -Wextra -Werror
+RM	= rm -rf
 
-HEADER  = pipex.h
-SRCS    = pipex.c childs.c error.c free.c \
+HEADER	= pipex.h
+SRCS	= pipex.c childs.c error.c free.c \
           ft_strncmp.c ft_strdup.c ft_split.c ft_strjoin.c \
           gnl/get_next_line.c gnl/get_next_line_utils.c
-OBJS    = $(SRCS:.c=.o)
+OBJS	= $(SRCS:.c=.o)
 
 %.o: %.c $(HEADER)
 	$(CC) $(FLAGS) -c $< -o $@

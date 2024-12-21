@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rodrigo <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: rlendine <rlendine@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 07:25:17 by rodrigo           #+#    #+#             */
-/*   Updated: 2024/12/17 07:25:23 by rodrigo          ###   ########.fr       */
+/*   Updated: 2024/12/21 02:13:05 by rlendine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,3 +102,11 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	return (worker(w_arr, s1, c, j));
 }
+
+/*
+int     main(void)
+{
+    printf("%s", ft_split("PATH=/usr/bin:/bin:/usr/sbin:/sbin", ':'));
+	return (0);
+}
+*/

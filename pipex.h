@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rodrigo <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: rlendine <rlendine@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 07:26:53 by rodrigo           #+#    #+#             */
-/*   Updated: 2024/12/17 08:11:14 by rodrigo          ###   ########.fr       */
+/*   Updated: 2024/12/21 01:51:02 by rlendine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,10 @@
 /* get_next_line */
 # include "gnl/get_next_line.h"
 
-# define ERR_INFILE "Infile"
-# define ERR_OUTFILE "Outfile"
+# define ERR_INFILE "Invalid Infile"
+# define ERR_OUTFILE "Invalid Outfile"
 # define ERR_INPUT "Invalid number of arguments.\n"
-# define ERR_PIPE "Pipe"
+# define ERR_PIPE "Invalid Pipe"
 # define ERR_CMD "Command not found\n"
 
 typedef struct s_pipex
@@ -49,7 +49,7 @@ typedef struct s_pipex
 	int		tube[2];
 	int		infile;
 	int		outfile;
-	char	*paths;
+	char	*path;
 	char	**cmd_paths;
 	char	**cmd_args;
 	char	*cmd;
